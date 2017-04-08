@@ -24,13 +24,13 @@ class TestDict(unittest.TestCase):
       d['b'] = 4
       self.assertEqual(d['b'], 4)
       self.assertEqual(d['a'], 2)
-#
-#    def test_insert_and_change(self):
-#      d = Dict()
-#      d['a'] = 2
-#      d['a'] = 3
-#      self.assertEqual(d['a'], 3)
-#
+
+    def test_insert_and_change(self):
+      d = Dict()
+      d['a'] = 2
+      d['a'] = 3
+      self.assertEqual(d['a'], 3)
+
 #    def test_contains_key(self):
 #      d = Dict()
 #      d['abc'] = 4
