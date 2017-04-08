@@ -14,6 +14,13 @@ class Dict:
             if k == key:
                 return v
 
+    def __contains__(self, key):
+        for kv in self._elements:
+            if kv[0] == key:
+                return True
+        else:
+            return False
+
 import unittest
 
 class TestDict(unittest.TestCase):
@@ -31,15 +38,15 @@ class TestDict(unittest.TestCase):
       d['a'] = 3
       self.assertEqual(d['a'], 3)
 
-#    def test_contains_key(self):
-#      d = Dict()
-#      d['abc'] = 4
-#      d['ryansux'] = 42069
-#      self.assertTrue('ryansux' in d)
-#      self.assertFalse('theseunitestsaresoimmature' in d)
-#      self.assertTrue('abc' in d)
-#      self.assertFalse(4 in d)
-#      self.assertFalse('a' in d)
+    def test_contains_key(self):
+      d = Dict()
+      d['abc'] = 4
+      d['ryansux'] = 42069
+      self.assertTrue('ryansux' in d)
+      self.assertFalse('theseunitestsaresoimmature' in d)
+      self.assertTrue('abc' in d)
+      self.assertFalse(4 in d)
+      self.assertFalse('a' in d)
 #
 #    def test_keyerror_on_not_found(self):
 #      d = Dict()
