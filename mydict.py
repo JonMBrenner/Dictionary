@@ -13,6 +13,7 @@ class Dict:
         for k, v in self._elements:
             if k == key:
                 return v
+        raise KeyError(str(key))
 
     def __contains__(self, key):
         for kv in self._elements:
@@ -47,11 +48,11 @@ class TestDict(unittest.TestCase):
       self.assertTrue('abc' in d)
       self.assertFalse(4 in d)
       self.assertFalse('a' in d)
-#
-#    def test_keyerror_on_not_found(self):
-#      d = Dict()
-#      with self.assertRaises(KeyError):
-#        d['a']
+
+    def test_keyerror_on_not_found(self):
+      d = Dict()
+      with self.assertRaises(KeyError):
+        d['a']
 #
 #    def test_str(self):
 #      d = Dict()
