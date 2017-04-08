@@ -1,14 +1,29 @@
+class Dict:
+    def __init__(self):
+        self._elements = []
+
+    def __setitem__(self, key, value):
+        for kv in self._elements:
+            if kv[0] == key:
+                kv[1] = value
+        else:
+            self._elements.append([key, value])
+
+    def __getitem__(self, key):
+        for k, v in self._elements:
+            if k == key:
+                return v
+
 import unittest
 
 class TestDict(unittest.TestCase):
-    pass
-#    def test_insert_and_lookup(self):
-#      d = Dict()
-#      d['a'] = 2
-#      self.assertEqual(d['a'], 2)
-#      d['b'] = 4
-#      self.assertEqual(d['b'], 4)
-#      self.assertEqual(d['a'], 2)
+    def test_insert_and_lookup(self):
+      d = Dict()
+      d['a'] = 2
+      self.assertEqual(d['a'], 2)
+      d['b'] = 4
+      self.assertEqual(d['b'], 4)
+      self.assertEqual(d['a'], 2)
 #
 #    def test_insert_and_change(self):
 #      d = Dict()
