@@ -6,6 +6,7 @@ class Dict:
         for kv in self._elements:
             if kv[0] == key:
                 kv[1] = value
+                break
         else:
             self._elements.append([key, value])
 
@@ -21,6 +22,9 @@ class Dict:
                 return True
         else:
             return False
+
+    def __len__(self):
+        return len(self._elements)
 
 import unittest
 
@@ -53,6 +57,15 @@ class TestDict(unittest.TestCase):
       d = Dict()
       with self.assertRaises(KeyError):
         d['a']
+
+    def test_length(self):
+        d = Dict()
+        self.assertEqual(len(d), 0)
+        d['a'] = 1
+        d['b'] = 2
+        self.assertEqual(len(d), 2)
+        d['b'] = 3
+        self.assertEqual(len(d), 2)
 #
 #    def test_str(self):
 #      d = Dict()
