@@ -9,25 +9,26 @@ class EmptyTree:
         return False
 
 class BST:
-    def __init__(self, key):
+    def __init__(self, key, value):
         self._key = key
+        self._value = value
         self._left = EmptyTree()
         self._right = EmptyTree()
 
     def empty(self):
         return False
 
-    def insert(self, key):
+    def insert(self, key, value):
         if key > self._key:
             if self._right.empty():
-                self._right = BST(key)
+                self._right = BST(key, value)
             else:
-                self._right.insert(key)
+                self._right.insert(key, value)
         elif key < self._key:
             if self._left.empty():
-                self._left = BST(key)
+                self._left = BST(key, value)
             else:
-                self._left.insert(key)
+                self._left.insert(key, value)
             return
         else:
             raise keyError(str(key))
