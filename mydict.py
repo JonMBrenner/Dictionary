@@ -30,8 +30,7 @@ class Dict:
         return (k for k, _ in self._elements)
 
     def values(self):
-        for kv in self._elements:
-            yield kv[1]
+        return (v for _, v in self._elements)
 
     def items(self):
         for kv in self._elements:
