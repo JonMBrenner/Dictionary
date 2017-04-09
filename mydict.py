@@ -27,8 +27,7 @@ class Dict:
             repr(k), repr(v)) for k, v in self._elements) + '}')
 
     def keys(self):
-        for kv in self._elements:
-            yield kv[0]
+        return (k for k, _ in self._elements)
 
     def values(self):
         for kv in self._elements:
