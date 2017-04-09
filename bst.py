@@ -6,7 +6,7 @@ class EmptyTree:
         return 0
 
     def lookup(self, key):
-        return False
+        raise KeyError(str(key))
 
 class BST:
     def __init__(self, key, value):
@@ -37,6 +37,10 @@ class BST:
         return 1 + len(self._right) + len(self._left)
 
     def lookup(self, key):
-        return (self._key == key or self._right.lookup(key)
-                or self._left.lookup(key))
+        if key == self._key:
+            return self._value
+        elif key > self._key:
+            return self._right.lookup(key)
+        elif key < self._key:
+            return self._left.lookup(key)
 
