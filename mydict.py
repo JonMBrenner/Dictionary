@@ -26,6 +26,9 @@ class Dict:
     def __len__(self):
         return len(self._elements)
 
+    def __repr__(self):
+        return ('{'  + ', '.join('{}: {}'.format(repr(k), repr(v)) for k, v in self._elements) + '}')
+
 import unittest
 
 class TestDict(unittest.TestCase):
@@ -66,14 +69,14 @@ class TestDict(unittest.TestCase):
         self.assertEqual(len(d), 2)
         d['b'] = 3
         self.assertEqual(len(d), 2)
-#
-#    def test_str(self):
-#      d = Dict()
-#      d['a'] = 2 
-#      self.assertEqual(str(d), "{'a': 2}")
-#      d['abc'] = 3 
-#      # order doesn't matter
-#      self.assertIn(str(d), ("{'a': 2, 'abc': 3}", "{'abc': 3, 'a', 2}"))
+
+    def test_str(self):
+      d = Dict()
+      d['a'] = 2
+      self.assertEqual(str(d), "{'a': 2}")
+      d['abc'] = 3
+      # order doesn't matter
+      self.assertIn(str(d), ("{'a': 2, 'abc': 3}", "{'abc': 3, 'a', 2}"))
 
 
 if __name__ == '__main__':
