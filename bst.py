@@ -31,7 +31,7 @@ class BST:
                 self._left.insert(key, value)
             return
         else:
-            raise keyError(str(key))
+            self._value = value 
 
     def __len__(self):
         return 1 + len(self._right) + len(self._left)
