@@ -33,8 +33,7 @@ class Dict:
         return (v for _, v in self._elements)
 
     def items(self):
-        for kv in self._elements:
-            yield tuple(kv)
+        return zip(self.keys(), self.values())
 
 import unittest
 
