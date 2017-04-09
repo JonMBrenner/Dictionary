@@ -17,7 +17,7 @@ class Dict:
         raise KeyError(str(key))
 
     def __contains__(self, key):
-        return any([k == key for k, v in self._elements])
+        return any(k == key for k, v in self._elements)
 
     def __len__(self):
         return len(self._elements)
