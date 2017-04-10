@@ -2,21 +2,16 @@ import bst
 
 class Dict:
     def __init__(self):
-        self._elements = []
+        self._elements = bst.EmptyTree()
 
     def __setitem__(self, key, value):
-        for kv in self._elements:
-            if kv[0] == key:
-                kv[1] = value
-                break
+        if self._elements.empty():
+            self._elements = bst.BST(key, value)
         else:
-            self._elements.append([key, value])
+            self._elements.insert(key, value)
 
     def __getitem__(self, key):
-        for k, v in self._elements:
-            if k == key:
-                return v
-        raise KeyError(str(key))
+        return self._elements.lookup(key)
 
 #    def __contains__(self, key):
 #        return any(k == key for k, v in self._elements)
@@ -64,10 +59,10 @@ class TestDict(unittest.TestCase):
 #      self.assertFalse(4 in d)
 #      self.assertFalse('a' in d)
 #
-#    def test_keyerror_on_not_found(self):
-#      d = Dict()
-#      with self.assertRaises(KeyError):
-#        d['a']
+    def test_keyerror_on_not_found(self):
+      d = Dict()
+      with self.assertRaises(KeyError):
+        d['a']
 #
 #    def test_length(self):
 #        d = Dict()
