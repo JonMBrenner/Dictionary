@@ -13,8 +13,14 @@ class Dict:
     def __getitem__(self, key):
         return self._elements.lookup(key)
 
-#    def __contains__(self, key):
-#        return any(k == key for k, v in self._elements)
+    def __contains__(self, key):
+        try:
+            self._elements.lookup(key)
+        except KeyError:
+            return False
+        else:
+            return True
+
 #
 #    def __len__(self):
 #        return len(self._elements)
@@ -49,16 +55,16 @@ class TestDict(unittest.TestCase):
       d['a'] = 3
       self.assertEqual(d['a'], 3)
 
-#    def test_contains_key(self):
-#      d = Dict()
-#      d['abc'] = 4
-#      d['ryansux'] = 42069
-#      self.assertTrue('ryansux' in d)
-#      self.assertFalse('theseunitestsaresoimmature' in d)
-#      self.assertTrue('abc' in d)
-#      self.assertFalse(4 in d)
-#      self.assertFalse('a' in d)
-#
+    def test_contains_key(self):
+      d = Dict()
+      d['abc'] = 4
+      d['ryansux'] = 42069
+      self.assertTrue('ryansux' in d)
+      self.assertFalse('theseunitestsaresoimmature' in d)
+      self.assertTrue('abc' in d)
+      self.assertFalse('b' in d)
+      self.assertFalse('a' in d)
+
     def test_keyerror_on_not_found(self):
       d = Dict()
       with self.assertRaises(KeyError):
