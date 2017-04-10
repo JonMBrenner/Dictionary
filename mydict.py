@@ -21,10 +21,10 @@ class Dict:
         else:
             return True
 
-#
-#    def __len__(self):
-#        return len(self._elements)
-#
+
+    def __len__(self):
+        return len(self._elements)
+
 #    def __repr__(self):
 #        return ('{'  + ', '.join('{}: {}'.format(
 #            repr(k), repr(v)) for k, v in self._elements) + '}')
@@ -69,15 +69,18 @@ class TestDict(unittest.TestCase):
       d = Dict()
       with self.assertRaises(KeyError):
         d['a']
-#
-#    def test_length(self):
-#        d = Dict()
-#        self.assertEqual(len(d), 0)
-#        d['a'] = 1
-#        d['b'] = 2
-#        self.assertEqual(len(d), 2)
-#        d['b'] = 3
-#        self.assertEqual(len(d), 2)
+
+    def test_length(self):
+        d = Dict()
+        self.assertEqual(len(d), 0)
+        d['a'] = 1
+        d['b'] = 2
+        self.assertEqual(len(d), 2)
+        d['b'] = 3
+        self.assertEqual(len(d), 2)
+        d['s'] = 12
+        d['g'] = 1
+        self.assertEqual(len(d), 4)
 #
 #    def test_str(self):
 #      d = Dict()
