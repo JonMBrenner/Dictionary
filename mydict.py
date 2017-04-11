@@ -35,8 +35,9 @@ class Dict:
 #    def values(self):
 #        return (v for _, v in self._elements)
 #
-#    def items(self):
-#        return zip(self.keys(), self.values())
+    def items(self):
+        yield from self._elements.items()
+
 
 import unittest
 
@@ -108,15 +109,15 @@ class TestDict(unittest.TestCase):
 #        vals = sorted(list(d.values()))
 #        self.assertEqual(vals, [50, 100, 150])
 #
-#    def test_items(self):
-#        d = Dict()
-#        d['abc'] = 50
-#        d['xyz'] = 100
-#        d['hello'] = 150
-#        self.assertNotIsInstance(d.items(), list)
-#        items = sorted(list(d.items()))
-#        self.assertIsInstance(items[0], tuple)
-#        self.assertEqual(items, [('abc', 50), ('hello', 150), ('xyz', 100)])
+    def test_items(self):
+        d = Dict()
+        d['abc'] = 50
+        d['xyz'] = 100
+        d['hello'] = 150
+        self.assertNotIsInstance(d.items(), list)
+        items = sorted(list(d.items()))
+        self.assertIsInstance(items[0], tuple)
+        self.assertEqual(items, [('abc', 50), ('hello', 150), ('xyz', 100)])
 
 if __name__ == '__main__':
     unittest.main()

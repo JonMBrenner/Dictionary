@@ -8,6 +8,10 @@ class EmptyTree:
     def lookup(self, key):
         raise KeyError(str(key))
 
+    def items(self):
+        return
+        yield
+
 class BST:
     def __init__(self, key, value):
         self._key = key
@@ -44,3 +48,7 @@ class BST:
         elif key < self._key:
             return self._left.lookup(key)
 
+    def items(self):
+        yield from self._left.items()
+        yield tuple([self._key, self._value])
+        yield from self._right.items()
