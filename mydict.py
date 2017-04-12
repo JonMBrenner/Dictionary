@@ -32,10 +32,11 @@ class Dict:
     def keys(self):
         for i in self._elements.items():
             yield i[0]
-#
-#    def values(self):
-#        return (v for _, v in self._elements)
-#
+
+    def values(self):
+        for i in self._elements.items():
+            yield i[1]
+
     def items(self):
         yield from self._elements.items()
 
@@ -101,16 +102,16 @@ class TestDict(unittest.TestCase):
         self.assertNotIsInstance(d.keys(), list)
         keys = sorted(list(d.keys()))
         self.assertEqual(keys, ['abc', 'hello', 'xyz'])
-#
-#    def test_values(self):
-#        d = Dict()
-#        d['abc'] = 50
-#        d['xyz'] = 100
-#        d['hello'] = 150
-#        self.assertNotIsInstance(d.values(), list)
-#        vals = sorted(list(d.values()))
-#        self.assertEqual(vals, [50, 100, 150])
-#
+
+    def test_values(self):
+        d = Dict()
+        d['abc'] = 50
+        d['xyz'] = 100
+        d['hello'] = 150
+        self.assertNotIsInstance(d.values(), list)
+        vals = sorted(list(d.values()))
+        self.assertEqual(vals, [50, 100, 150])
+
     def test_items(self):
         d = Dict()
         d['abc'] = 50
