@@ -50,5 +50,5 @@ class BST:
 
     def items(self):
         yield from self._left.items()
-        yield tuple([self._key, self._value])
+        yield (self._key, self._value)
         yield from self._right.items()
