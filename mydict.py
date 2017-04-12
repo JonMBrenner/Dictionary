@@ -28,9 +28,10 @@ class Dict:
     def __repr__(self):
         return ('{'  + ', '.join('{}: {}'.format(
             repr(i[0]), repr(i[1])) for i in self._elements.items()) + '}')
-#
-#    def keys(self):
-#        return (k for k, _ in self._elements)
+
+    def keys(self):
+        for i in self._elements.items():
+            yield i[0]
 #
 #    def values(self):
 #        return (v for _, v in self._elements)
@@ -91,15 +92,15 @@ class TestDict(unittest.TestCase):
       d['abc'] = 3
       # order doesn't matter
       self.assertIn(str(d), ("{'a': 2, 'abc': 3}", "{'abc': 3, 'a', 2}"))
-#
-#    def test_keys(self):
-#        d = Dict()
-#        d['abc'] = 50
-#        d['xyz'] = 100
-#        d['hello'] = 150
-#        self.assertNotIsInstance(d.keys(), list)
-#        keys = sorted(list(d.keys()))
-#        self.assertEqual(keys, ['abc', 'hello', 'xyz'])
+
+    def test_keys(self):
+        d = Dict()
+        d['abc'] = 50
+        d['xyz'] = 100
+        d['hello'] = 150
+        self.assertNotIsInstance(d.keys(), list)
+        keys = sorted(list(d.keys()))
+        self.assertEqual(keys, ['abc', 'hello', 'xyz'])
 #
 #    def test_values(self):
 #        d = Dict()
