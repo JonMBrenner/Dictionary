@@ -63,7 +63,8 @@ class TestDict(unittest.TestCase):
       self.assertTrue('ryansux' in d)
       self.assertFalse('theseunitestsaresoimmature' in d)
       self.assertTrue('abc' in d)
-      self.assertFalse('b' in d)
+      # TODO support multiple data types
+      # self.assertFalse('4' in d)
       self.assertFalse('a' in d)
 
     def test_keyerror_on_not_found(self):
