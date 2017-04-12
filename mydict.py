@@ -59,9 +59,9 @@ class TestDict(unittest.TestCase):
     def test_contains_key(self):
       d = Dict()
       d['abc'] = 4
-      d['ryansux'] = 42069
-      self.assertTrue('ryansux' in d)
-      self.assertFalse('theseunitestsaresoimmature' in d)
+      d['xyz'] = 429
+      self.assertTrue('xyz' in d)
+      self.assertFalse('b' in d)
       self.assertTrue('abc' in d)
       # TODO support multiple data types
       # self.assertFalse('4' in d)
