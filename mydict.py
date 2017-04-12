@@ -38,7 +38,7 @@ class Dict:
             yield i[1]
 
     def items(self):
-        yield from self._elements.items()
+        return self._elements.items()
 
 
 import unittest
