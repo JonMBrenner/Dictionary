@@ -27,7 +27,7 @@ class Dict:
 
     def __repr__(self):
         return ('{'  + ', '.join('{}: {}'.format(
-            repr(i[0]), repr(i[1])) for i in self._elements.items()) + '}')
+            repr(k), repr(v)) for k, v in self._elements.items()) + '}')
 
     def keys(self):
         return (i[0] for i in self._elements.items())
