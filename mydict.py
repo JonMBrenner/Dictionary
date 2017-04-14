@@ -30,10 +30,10 @@ class Dict:
             repr(k), repr(v)) for k, v in self._elements.items()) + '}')
 
     def keys(self):
-        return (i[0] for i in self._elements.items())
+        return (k for k, _ in self._elements.items())
 
     def values(self):
-        return (i[1] for i in self._elements.items())
+        return (v for _, v in self._elements.items())
 
     def items(self):
         return self._elements.items()
