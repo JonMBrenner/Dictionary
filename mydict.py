@@ -43,34 +43,34 @@ import unittest
 
 class TestDict(unittest.TestCase):
     def test_insert_and_lookup(self):
-      d = Dict()
-      d['a'] = 2
-      self.assertEqual(d['a'], 2)
-      d['b'] = 4
-      self.assertEqual(d['b'], 4)
-      self.assertEqual(d['a'], 2)
+        d = Dict()
+        d['a'] = 2
+        self.assertEqual(d['a'], 2)
+        d['b'] = 4
+        self.assertEqual(d['b'], 4)
+        self.assertEqual(d['a'], 2)
 
     def test_insert_and_change(self):
-      d = Dict()
-      d['a'] = 2
-      d['a'] = 3
-      self.assertEqual(d['a'], 3)
+        d = Dict()
+        d['a'] = 2
+        d['a'] = 3
+        self.assertEqual(d['a'], 3)
 
     def test_contains_key(self):
-      d = Dict()
-      d['abc'] = 4
-      d['xyz'] = 429
-      self.assertTrue('xyz' in d)
-      self.assertFalse('b' in d)
-      self.assertTrue('abc' in d)
-      # TODO support multiple data types
-      # self.assertFalse('4' in d)
-      self.assertFalse('a' in d)
+        d = Dict()
+        d['abc'] = 4
+        d['xyz'] = 429
+        self.assertTrue('xyz' in d)
+        self.assertFalse('b' in d)
+        self.assertTrue('abc' in d)
+        # TODO support multiple data types
+        # self.assertFalse('4' in d)
+        self.assertFalse('a' in d)
 
     def test_keyerror_on_not_found(self):
-      d = Dict()
-      with self.assertRaises(KeyError):
-        d['a']
+        d = Dict()
+        with self.assertRaises(KeyError):
+            d['a']
 
     def test_length(self):
         d = Dict()
@@ -85,12 +85,12 @@ class TestDict(unittest.TestCase):
         self.assertEqual(len(d), 4)
 
     def test_str(self):
-      d = Dict()
-      d['a'] = 2
-      self.assertEqual(str(d), "{'a': 2}")
-      d['abc'] = 3
-      # order doesn't matter
-      self.assertIn(str(d), ("{'a': 2, 'abc': 3}", "{'abc': 3, 'a', 2}"))
+        d = Dict()
+        d['a'] = 2
+        self.assertEqual(str(d), "{'a': 2}")
+        d['abc'] = 3
+        # order doesn't matter
+        self.assertIn(str(d), ("{'a': 2, 'abc': 3}", "{'abc': 3, 'a', 2}"))
 
     def test_keys(self):
         d = Dict()
